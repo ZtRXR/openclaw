@@ -272,6 +272,8 @@ export type ExecToolConfig = {
      */
     allowModels?: string[];
   };
+  /** Custom shell path to use for executing commands. */
+  shell?: string;
 };
 
 export type FsToolsConfig = {

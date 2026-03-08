@@ -155,6 +155,7 @@ function resolveExecConfig(params: { cfg?: OpenClawConfig; agentId?: string }) {
     notifyOnExitEmptySuccess:
       agentExec?.notifyOnExitEmptySuccess ?? globalExec?.notifyOnExitEmptySuccess,
     applyPatch: agentExec?.applyPatch ?? globalExec?.applyPatch,
+    shell: agentExec?.shell ?? globalExec?.shell,
   };
 }
 
@@ -425,6 +426,7 @@ export function createOpenClawCodingTools(options?: {
           env: sandbox.docker.env,
         }
       : undefined,
+    shell: options?.exec?.shell ?? execConfig.shell,
   });
   const processTool = createProcessTool({
     cleanupMs: cleanupMsOverride ?? execConfig.cleanupMs,
